@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+        <img src="{% static 'img/core-img/hammer.png' %}" alt="">
+    </div>
+
+    {% include 'partials/_menu.html' %}
+
+    <!-- Receipe Slider -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading">
+                    <h3>Listas de diligências</h3>
+                    <p>Abaixo temos as tabelas com as listas de diligências separadas por comuns, prioridades e
+                        sentenças</p>
+                </div>
+                <div class="section-heading">
+                    <h4>Lista de diligências comuns</h4>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Processo</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Data da diligência</th>
+                        <th scope="col">Advogado</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if diligencias_comuns %}
+                        {% for diligencia in diligencias_comuns %}
+
+                            <tr>
+                                <th scope="row"></th>
+                                <td>{{ diligencia.processo }}</td>
+                                <td>{{ diligencia.tipo }}</td>
+                                <td>{{ diligencia.data_diligencia }}</td>
+                                <td>{{ diligencia.advogado }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <p>Não há diligências cadastradas.</p>
+                    {% endif %}
+                    </tbody>
+                </table>
+                <br/><br/>
+                <div class="section-heading">
+                    <h4>Lista de diligências Prioridade</h4>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Processo</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Data da diligência</th>
+                        <th scope="col">Advogado</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if diligencias_prioridade %}
+                        {% for diligencia in diligencias_prioridade %}
+
+                            <tr>
+                                <th scope="row"></th>
+                                <td>{{ diligencia.processo }}</td>
+                                <td>{{ diligencia.tipo }}</td>
+                                <td>{{ diligencia.data_diligencia }}</td>
+                                <td>{{ diligencia.advogado }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <p>Não há diligências cadastradas.</p>
+                    {% endif %}
+                    </tbody>
+                </table>
+                <br/><br/>
+                <div class="section-heading">
+                    <h4>Lista de Sentenças Comuns</h4>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Processo</th>
+                        <th scope="col">Data da diligência</th>
+                        <th scope="col">Advogado</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if diligencias_sentencas_comuns %}
+                        {% for diligencia in diligencias_sentencas_comuns %}
+
+                            <tr>
+                                <th scope="row"></th>
+                                <td>{{ diligencia.processo }}</td>
+                                <td>{{ diligencia.data_diligencia }}</td>
+                                <td>{{ diligencia.advogado }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <p>Não há diligências cadastradas.</p>
+                    {% endif %}
+                    </tbody>
+                </table>
+                <br/><br/>
+                <div class="section-heading">
+                    <h4>Lista de Sentenças Prioridade</h4>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Processo</th>
+                        <th scope="col">Data da diligência</th>
+                        <th scope="col">Advogado</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if diligencias_sentencas_prioridade %}
+                        {% for diligencia in diligencias_sentencas_prioridade %}
+
+                            <tr>
+                                <th scope="row"></th>
+                                <td>{{ diligencia.processo }}</td>
+                                <td>{{ diligencia.data_diligencia }}</td>
+                                <td>{{ diligencia.advogado }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <p>Não há diligências cadastradas.</p>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% include 'partials/_footer.html' %}
+{% endblock %}

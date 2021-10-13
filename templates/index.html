@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Preloader -->
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+        <img src="{% static 'img/core-img/hammer.png' %}" alt="">
+    </div>
+
+    {% include 'partials/_menu.html' %}
+
+    <section class="best-receipe-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Bem vindo ao Sistema de Suporte ao Advogado</h3>
+                        <p>Selecione uma das opções no menu acima.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <h3>FAQ - Perguntas mais frequentes</h3>
+                        <p>leia abaixo para entender a proposta do site.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'partials/_footer.html' %}
+{% endblock %}

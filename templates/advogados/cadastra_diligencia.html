@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Preloader -->
+    <div id="preloader">
+        <i class="circle-preloader"></i>
+        <img src="{% static 'img/core-img/hammer.png' %}" alt="">
+    </div>
+
+    {% include 'partials/_menu.html' %}
+
+    <!-- ##### Contact Form Area Start ##### -->
+    <div class="contact-area section-padding-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Cadastre a sua diligência, {{ user.username }}</h3>
+                    </div>
+                </div>
+            </div>
+            {% include 'partials/_alertas.html' %}
+            <div class="row">
+                <div class="col-12">
+                    <p>Todos os campos são obrigatórios</p>
+                    <div class="contact-form-area">
+                        <form action="{% url 'cadastra_diligencia' %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <label for="processo"><b>Processo</b></label>
+                                    <input type="text" id="processo" class="form-control" name="processo"
+                                           placeholder="Ex. 8001234-56.2021.8.05.0141" required>
+                                </div>
+                                <div class="col-12 col-lg-12">
+                                    <label for="classe"><b>Classe processual</b></label>
+                                    <select class="form-control" size="5" name="classe">
+                                        <option value="" selected>Selecione a Classe Processual...</option>
+                                        <option value="Adoção">Adoção</option>
+                                        <option value="Alimentos">Alimentos</option>
+                                        <option value="Alvará">Alvará</option>
+                                        <option value="Arrolamento/Inventário">Arrolamento/Inventário</option>
+                                        <option value="Averiguação de Paternidade">Averiguação de Paternidade</option>
+                                        <option value="Ação Civil Pública">Ação Civil Pública</option>
+                                        <option value="Ação Popular">Ação Popular</option>
+                                        <option value="Busca e Apreensão">Busca e Apreensão</option>
+                                        <option value="Carta Precatória">Carta Precatória</option>
+                                        <option value="Cautelar Inominada">Cautelar Inominada</option>
+                                        <option value="Cumprimento de Sentença">Cumprimento de Sentença</option>
+                                        <option value="Divórcio/Separação">Divórcio/Separação</option>
+                                        <option value="Embargos de Declaração">Embargos de Declaração</option>
+                                        <option value="Execução de Alimentos">Execução de Alimentos</option>
+                                        <option value="Execução de Título Extrajudicial">Execução de Título
+                                            Extrajudicial
+                                        </option>
+                                        <option value="Execução de Título Judicial">Execução de Título Judicial</option>
+                                        <option value="Execução Fiscal">Execução Fiscal</option>
+                                        <option value="Guarda">Guarda</option>
+                                        <option value="Homologatória">Homologatória</option>
+                                        <option value="Interdição/Curatela">Interdição/Curatela</option>
+                                        <option value="Mandado de Segurança">Mandado de Segurança</option>
+                                        <option value="Monitória">Monitória</option>
+                                        <option value="Juizado Especial">Juizado Especial</option>
+                                        <option value="Outros">Outros</option>
+                                        <option value="Possessória">Possessória</option>
+                                        <option value="Registros Públicos">Registros Públicos</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <label for="tipo"><b>Tipo</b></label>
+                                    <select class="form-control" size="5" name="tipo">
+                                        <option value="" selected>Selecione o tipo da diligência...</option>
+                                        <option value="Despacho">Despacho</option>
+                                        <option value="Decisão">Decisão</option>
+                                        <option value="Sentença">Sentença</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <label for="prioridade"><b>Prioridade legal</b></label>
+                                    <select class="form-control" name="prioridade">
+                                        <option value="False" selected>Não</option>
+                                        <option value="True">Sim</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-lg-12">
+                                    <label for="file"><b>Diligência requerida</b></label>
+                                    <textarea class="form-control" name="diligencia" cols="10" rows="5"
+                                              placeholder="Ex. Requer que seja apreciado o pedido liminar de alimentos"></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn delicious-btn mt-30" type="submit">Envie sua diligência</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'partials/_footer.html' %}
+{% endblock %}
