@@ -124,6 +124,7 @@ def cadastra_diligencia(request):
         descricao_diligencia = request.POST['diligencia']
         prioridade = request.POST['prioridade']
         advogado = get_object_or_404(Advogado, user_id=request.user.id)
+        data_conclusao = request.POST['data_conclusao']
 
         if campo_vazio(processo):
             messages.error(request, 'O campo processo não pode ficar em branco')
@@ -137,9 +138,13 @@ def cadastra_diligencia(request):
             messages.error(request, 'Selecione um tipo de diligência')
             return redirect('cadastra_diligencia')
 
+        if campo_vazio(data_conclusao):
+            messages.error(request, 'A data de conclusão do processo é obrigatória')
+            return redirect('cadastra_diligencia')
+
         diligencia = Diligencia.objects.create(processo=processo, classe=classe, tipo=tipo,
                                                diligencia=descricao_diligencia, prioridade=prioridade,
-                                               advogado=advogado)
+                                               advogado=advogado, data_conclusao=data_conclusao)
         diligencia.save()
         messages.success(request,'Diligência cadastrada com sucesso!')
         return redirect('index')

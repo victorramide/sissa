@@ -13,6 +13,7 @@ class Diligencia(models.Model):
     diligencia = models.TextField()
     prioridade = models.BooleanField(default=False)
     data_diligencia = models.DateTimeField(default=datetime.now, blank=True)
+    data_conclusao = models.DateField()
 
     def __str__(self):
         return self.processo
