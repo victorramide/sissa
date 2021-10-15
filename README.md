@@ -27,3 +27,4 @@ No momento que escrevi esse texto me ocorreu que eu poderia passar uma consulta 
 
 - Outra dificuldade boba, mas que tem a ver com Javascript seria fazer um index na tabela para mostrar a posição de cada processo na lista, fiquei horas pesquisando e não encontrei como fazer.
 
+Bom, This is It, espero que tenham se divertido lendo esse Readme como eu me diverti escrevendo e até o próximo commit.
