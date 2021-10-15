@@ -1,17 +1,17 @@
 # SISSA
 Sistema de Suporte ao Advogado construído com Django
 
-O Sistema de Suporte ao Advogado nasceu há alguns anos quando eu ainda trabalhava prestando serviço ao Poder Judiciário aqui da Bahia. Eu percebi as dificuldades, tais como custo, transporte, tempo gasto, que os Advogados tinham em realizar diligências processuais junto ao Juiz responsável pelo processo e também o tempo que o Juiz responsável tinha que separar da sua jornada de trabalho para atender esses Advogados.
+O Sistema de Suporte ao Advogado nasceu há alguns anos quando eu ainda trabalhava prestando serviço ao Poder Judiciário aqui da Bahia. Eu percebi as dificuldades, tais como: custo, transporte e tempo gasto que os Advogados tinham em realizar diligências processuais junto ao Juiz responsável pelo processo e também o tempo que o Juiz responsável tinha que separar da sua jornada de trabalho para atender esses Advogados.
 
-Como o Código de Processo Civil já havia previsto a criação de listas públicas com processos prontos para serem sentenciados, ordenados por data da conclusão, eu percebi que poderia acrescentar valor a todos os envolvidos.
+Como o Código de Processo Civil já havia previsto a criação de listas públicas com processos prontos para serem sentenciados, ordenados por data da conclusão, eu percebi que poderia acrescentar valor a todos os envolvidos tornando essa dinâmica transparente e funcional.
 
-Inicialmente tentei implementar o projeto em Java, com JSF e Primefaces, inclusive, o projeto se tornou trabalho de faculdade e, apesar de incompleto, você pode encontra-lo aqui mesmo na minha conta no github. Infelizmente o custo para colocar o projeto no ar me afastou, visto que eu teria que arcar com todos eles se quisesse ver o projeto no ar. Então decidi faze-lo utilizando o blogger, google forms e o google spreadsheets e ele está no ar até hoje no endereço varaciveldecandeias.net, mais de dois anos após a minha saída do trabalho.
+Inicialmente tentei implementar o projeto em Java, com JSF e Primefaces, inclusive, o projeto se tornou trabalho de faculdade e, apesar de incompleto, você pode encontra-lo aqui mesmo na minha conta no github. Infelizmente o custo para colocar o projeto no ar me afastou, visto que eu teria que arcar com todos eles se quisesse ver o projeto funcionando. Então decidi faze-lo utilizando o blogger, google forms e o google spreadsheets e ele está no ar até hoje no endereço varaciveldecandeias.net, mais de dois anos após a minha saída do trabalho.
 
-Ao conhecer o Python e sobretudo o Django, eu senti a necessidade de tentar implementar a ideia original como forma de consolidar o meu aprendizado, afinal, na minha percepção, se eu conseguisse fazer um projeto 'original', o mais distante possível dos clones de outros sites, poderia considerar que de fato absorvi o conhecimento ao invés de ser um mero copiador de código.
+Ao conhecer o Python e sobretudo o Django, eu senti a necessidade de tentar implementar a ideia original como forma de consolidar o meu aprendizado, afinal, na minha percepção, se eu conseguisse fazer um projeto 'original', o mais distante possível dos clones de outros sites ou dos exemplos de projeto que rodam a internet (que tem o seu valor e certamente você verá muitos deles nesse perfil), poderia considerar que de fato absorvi o conhecimento ao invés de ser um mero copiador de código.
 
-Dito isso, devo deixar claro que todo o front-end do projeto foi feito pela ALURA e eu apenas reaproveitei e modifiquei de forma sutil (Preciso aprender o bootstrap e relembrar as aulas das tecnologias front-end hahaha).
+Dito isso, devo deixar claro que todo o front-end do projeto foi feito pela ALURA e entregue durante o curso, eu apenas reaproveitei e modifiquei de forma sutil (Preciso aprender o bootstrap e relembrar as aulas das tecnologias front-end hahaha) já que o estudo foi sobre Django.
 
-Algumas observações: O Django Admin é um recurso de brilhar os olhos, me senti muito bem em ver tudo pronto sem muito esforço e trabalhar com datas no django foi algo muito satisfatório, eu já estava pensando em como fazer as conversões para o formato do Banco de dados e depois fazer novamente para mostrar ao usuário, mas simplesmente funcionou como magia, me senti o próprio Harry Potter.
+Algumas observações: O Django Admin é um recurso de brilhar os olhos, me senti muito bem em ver tudo pronto sem muito esforço e trabalhar com datas no django foi algo muito satisfatório, eu já estava pensando em como fazer as conversões para o formato do Banco de dados e depois converter novamente para mostrar ao usuário, mas simplesmente funcionou como magia, me senti o próprio Harry Potter.
 
 Porém, nem tudo são flores ou sapos de chocolate (que você fica sem figurinha ou chocolate, é... talvez seja como esse último), algumas dificuldades ao longo do projeto merecem ser pontuadas:
 
@@ -23,8 +23,8 @@ E assim nasceu a segunda dificuldade.
 
 - Ao cadastrar uma diligência eu pego os dados do usuário logado para fazer a vinculação, mas como eu iria pegar a OAB desse usuário para mostrar na tela com a consulta padrão do Django (objects.filter())? 
 
-No momento que escrevi esse texto me ocorreu que eu poderia passar uma consulta SQL com o 'query' ou 'raw' e brincar a vontade com as possibilidades, mas teria outra forma?
+No momento que escrevi esse texto me ocorreu que eu poderia passar uma consulta SQL com o 'query' ou 'raw' e brincar a vontade com as possibilidades, acho que já temos o próximo commit ha ha ha (talvez você nem veja isso aqui quando ler esse texto).
 
-- Outra dificuldade boba, mas que tem a ver com Javascript seria fazer um index na tabela para mostrar a posição de cada processo na lista, fiquei horas pesquisando e não encontrei como fazer.
+- Outra dificuldade boba, mas que tem a ver com Javascript seria fazer um index na tabela para mostrar a posição de cada processo na lista, fiquei horas pesquisando e não encontrei como fazer (AINDA! Lok'tar Ogar!).
 
 Bom, This is It, espero que tenham se divertido lendo esse Readme como eu me diverti escrevendo e até o próximo commit.
