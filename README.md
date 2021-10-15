@@ -1,4 +1,4 @@
-# sissa
+# SISSA
 Sistema de Suporte ao Advogado construído com Django
 
 O Sistema de Suporte ao Advogado nasceu há alguns anos quando eu ainda trabalhava prestando serviço ao Poder Judiciário aqui da Bahia. Eu percebi as dificuldades, tais como custo, transporte, tempo gasto, que os Advogados tinham em realizar diligências processuais junto ao Juiz responsável pelo processo e também o tempo que o Juiz responsável tinha que separar da sua jornada de trabalho para atender esses Advogados.
@@ -9,9 +9,11 @@ Inicialmente tentei implementar o projeto em Java, com JSF e Primefaces, inclusi
 
 Ao conhecer o Python e sobretudo o Django, eu senti a necessidade de tentar implementar a ideia original como forma de consolidar o meu aprendizado, afinal, na minha percepção, se eu conseguisse fazer um projeto 'original', o mais distante possível dos clones de outros sites, poderia considerar que de fato absorvi o conhecimento ao invés de ser um mero copiador de código.
 
-Dito isso, devo deixar claro que todo o front-end do projeto foi feito pela ALURA e eu apenas reaproveitei e modifiquei de forma sutil (Preciso aprender o bootstrap e relembrar as aulas das tecnoligas front-end hahaha).
+Dito isso, devo deixar claro que todo o front-end do projeto foi feito pela ALURA e eu apenas reaproveitei e modifiquei de forma sutil (Preciso aprender o bootstrap e relembrar as aulas das tecnologias front-end hahaha).
 
-Algumas dificuldades ao longo do projeto merecem ser pontuadas:
+Algumas observações: O Django Admin é um recurso de brilhar os olhos, me senti muito bem em ver tudo pronto sem muito esforço e trabalhar com datas no django foi algo muito satisfatório, eu já estava pensando em como fazer as conversões para o formato do Banco de dados e depois fazer novamente para mostrar ao usuário, mas simplesmente funcionou como magia, me senti o próprio Harry Potter.
+
+Porém, nem tudo são flores ou sapos de chocolate (que você fica sem figurinha ou chocolate, é... talvez seja como esse último), algumas dificuldades ao longo do projeto merecem ser pontuadas:
 
 - A primeira dificuldade nasceu da conveniência de ter um modelo de User pronto no Django, o que facilita MUITO a nossa vida. Mas o que acontece se temos 2 perfis de User no projeto? No meu caso eu tinha o funcionário, que bastava os dados padrão do User, mas tinha também o Advogado que teria os atributos OAB e UF.
 
@@ -24,3 +26,4 @@ E assim nasceu a segunda dificuldade.
 No momento que escrevi esse texto me ocorreu que eu poderia passar uma consulta SQL com o 'query' ou 'raw' e brincar a vontade com as possibilidades, mas teria outra forma?
 
 - Outra dificuldade boba, mas que tem a ver com Javascript seria fazer um index na tabela para mostrar a posição de cada processo na lista, fiquei horas pesquisando e não encontrei como fazer.
+
