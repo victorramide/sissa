@@ -27,8 +27,10 @@ Tentei inclusive fazer uma consulta direta com <code>Diligencias.objects.query()
 
 consulta para a lista de processos comuns: <code>select dd.processo, dd.tipo, dd.data_diligencia, aa.oab from advogados_advogado aa inner join auth_user au ON aa.user_id = au.id inner join diligencias_diligencia dd on dd.advogado_id = aa.id where dd.tipo <> 'Sentença' and dd.prioridade = false;</code> 
 
-<b>UPDATE:</b> Problema resolvido mudando o string do model 'Advogado' para o username do usuário, a OAB e UF concatenada, foi mais fácil do que parecia.
+<b>SOLUÇÃO:</b> Problema resolvido mudando o string do model 'Advogado' para o username do usuário, a OAB e UF concatenada, foi mais fácil do que parecia.
 
 - Outra dificuldade boba, mas que tem a ver com Javascript seria fazer um index na tabela para mostrar a posição de cada processo na lista, fiquei horas pesquisando e não encontrei como fazer (AINDA! Lok'tar Ogar!).
+  
+ <b>SOLUÇÃO:</b> Lendo a documentação do Django eu conheci a variável <code>forloop.counter</code> que faz exatamente o que eu estava precisando.
 
 Bom, This is It, espero que tenham se divertido lendo esse Readme como eu me diverti escrevendo e até o próximo commit.
