@@ -9,4 +9,4 @@ class Advogado(models.Model):
     uf = models.CharField(max_length=2)
 
     def __str__(self):
-        return self.user.username
+        return self.user.username+" - "+self.oab+"/"+self.uf
