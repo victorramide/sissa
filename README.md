@@ -1,5 +1,5 @@
 # SISSA
-Sistema de Suporte ao Advogado construído com Django
+<h2>Sistema de Suporte ao Advogado construído com Django</h2>
 
 O Sistema de Suporte ao Advogado nasceu há alguns anos quando eu ainda trabalhava prestando serviço ao Poder Judiciário aqui da Bahia. Eu percebi as dificuldades, tais como: custo, transporte e tempo gasto que os Advogados tinham em realizar diligências processuais junto ao Juiz responsável pelo processo e também o tempo que o Juiz responsável tinha que separar da sua jornada de trabalho para atender esses Advogados.
 
@@ -23,7 +23,11 @@ E assim nasceu a segunda dificuldade.
 
 - Ao cadastrar uma diligência eu pego os dados do usuário logado para fazer a vinculação, mas como eu iria pegar a OAB desse usuário para mostrar na tela com a consulta padrão do Django (objects.filter())? 
 
-No momento que escrevi esse texto me ocorreu que eu poderia passar uma consulta SQL com o 'query' ou 'raw' e brincar a vontade com as possibilidades, acho que já temos o próximo commit ha ha ha (talvez você nem veja isso aqui quando ler esse texto).
+Tentei inclusive fazer uma consulta direta com <code>Diligencias.objects.query()</code>, conforme SQL abaixo, mas pelo objeto 'diligência' não ter o campo 'OAB' deu erro ao recuperar os dados, a consulta direto no SGBD puxou os dados conforme esperado.
+
+consulta para a lista de processos comuns: <code>select dd.processo, dd.tipo, dd.data_diligencia, aa.oab from advogados_advogado aa inner join auth_user au ON aa.user_id = au.id inner join diligencias_diligencia dd on dd.advogado_id = aa.id where dd.tipo <> 'Sentença' and dd.prioridade = false;</code> 
+
+<b>UPDATE:</b> Problema resolvido mudando o string do model 'Advogado' para o username do usuário, a OAB e UF concatenada, foi mais fácil do que parecia.
 
 - Outra dificuldade boba, mas que tem a ver com Javascript seria fazer um index na tabela para mostrar a posição de cada processo na lista, fiquei horas pesquisando e não encontrei como fazer (AINDA! Lok'tar Ogar!).
 
