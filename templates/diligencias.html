@@ -25,23 +25,22 @@
                 <table class="table table-striped" id="diligencias_comuns">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Processo</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Data da diligência</th>
-                        <th scope="col">Advogado</th>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col" class="text-center">Processo</th>
+                        <th scope="col" class="text-center">Tipo</th>
+                        <th scope="col" class="text-center">Data da diligência</th>
+                        <th scope="col" class="text-center">Advogado</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% if diligencias_comuns %}
                         {% for diligencia in diligencias_comuns %}
-
                             <tr>
-                                <th scope="row">{{ forloop.counter }}</th>
-                                <td>{{ diligencia.processo }}</td>
-                                <td>{{ diligencia.tipo }}</td>
-                                <td>{{ diligencia.data_diligencia }}</td>
-                                <td>{{ diligencia.advogado }}</td>
+                                <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                                <td class="text-center">{{ diligencia.processo }}</td>
+                                <td class="text-center">{{ diligencia.tipo }}</td>
+                                <td class="text-center">{{ diligencia.data_diligencia }}</td>
+                                <td class="text-center">{{ diligencia.advogado }}</td>
                             </tr>
                         {% endfor %}
                     {% else %}
@@ -56,23 +55,22 @@
                 <table class="table table-striped" id="diligencias_prioridade">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Processo</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Data da diligência</th>
-                        <th scope="col">Advogado</th>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col" class="text-center">Processo</th>
+                        <th scope="col" class="text-center">Tipo</th>
+                        <th scope="col" class="text-center">Data da diligência</th>
+                        <th scope="col" class="text-center">Advogado</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% if diligencias_prioridade %}
                         {% for diligencia in diligencias_prioridade %}
-
                             <tr>
-                                <th scope="row">{{ forloop.counter }}</th>
-                                <td>{{ diligencia.processo }}</td>
-                                <td>{{ diligencia.tipo }}</td>
-                                <td>{{ diligencia.data_diligencia }}</td>
-                                <td>{{ diligencia.advogado }}</td>
+                                <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                                <td class="text-center">{{ diligencia.processo }}</td>
+                                <td class="text-center">{{ diligencia.tipo }}</td>
+                                <td class="text-center">{{ diligencia.data_diligencia }}</td>
+                                <td class="text-center">{{ diligencia.advogado }}</td>
                             </tr>
                         {% endfor %}
                     {% else %}
@@ -87,21 +85,20 @@
                 <table class="table table-striped" id="sentencas_comuns">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Processo</th>
-                        <th scope="col">Data de conclusão</th>
-                        <th scope="col">Advogado</th>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col" class="text-center">Processo</th>
+                        <th scope="col" class="text-center">Data de conclusão</th>
+                        <th scope="col" class="text-center">Advogado</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% if diligencias_sentencas_comuns %}
                         {% for diligencia in diligencias_sentencas_comuns %}
-
                             <tr>
-                                <th scope="row">{{ forloop.counter }}</th>
-                                <td>{{ diligencia.processo }}</td>
-                                <td>{{ diligencia.data_conclusao }}</td>
-                                <td>{{ diligencia.advogado }}</td>
+                                <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                                <td class="text-center">{{ diligencia.processo }}</td>
+                                <td class="text-center">{{ diligencia.data_conclusao }}</td>
+                                <td class="text-center">{{ diligencia.advogado }}</td>
                             </tr>
                         {% endfor %}
                     {% else %}
@@ -116,20 +113,20 @@
                 <table class="table table-striped" id="sentencas_prioridade">
                     <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Processo</th>
-                        <th scope="col">Data de conclusão</th>
-                        <th scope="col">Advogado</th>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col" class="text-center">Processo</th>
+                        <th scope="col" class="text-center">Data de conclusão</th>
+                        <th scope="col" class="text-center">Advogado</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% if diligencias_sentencas_prioridade %}
                         {% for diligencia in diligencias_sentencas_prioridade %}
                             <tr>
-                                <th scope="row">{{ forloop.counter }}</th>
-                                <td>{{ diligencia.processo }}</td>
-                                <td>{{ diligencia.data_conclusao }}</td>
-                                <td>{{ diligencia.advogado }}</td>
+                                <th scope="row" class="text-center">{{ forloop.counter }}</th>
+                                <td class="text-center">{{ diligencia.processo }}</td>
+                                <td class="text-center">{{ diligencia.data_conclusao }}</td>
+                                <td class="text-center">{{ diligencia.advogado }}</td>
                             </tr>
                         {% endfor %}
                     {% else %}

@@ -107,7 +107,6 @@ def logout(request):
 
 def minhas_diligencias(request):
     advogado = get_object_or_404(Advogado, user_id=request.user.id)
-    print(type(advogado))
 
     diligencias = Diligencia.objects.filter(advogado_id=advogado)
     diligencias_a_exibir = {
@@ -150,6 +149,12 @@ def cadastra_diligencia(request):
         return redirect('index')
     else:
         return render(request, 'advogados/cadastra_diligencia.html')
+
+
+def deleta_diligencia(request, diligencia_id):
+    diligencia = get_object_or_404(Diligencia, pk=diligencia_id)
+    diligencia.delete()
+    return redirect('minhas_diligencias')
 
 
 def campo_vazio(campo):

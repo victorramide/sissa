@@ -15,17 +15,20 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading">
-                    <h3>Minhas diligências</h3>
+                    <h3>Olá, Dr(a). {{ user.username }}</h3>
+                    <h4>Aqui estão suas diligências</h4>
                 </div>
                 <table class="table table-striped" >
                     <thead>
                     <tr>
-                        <th scope="col">Processo</th>
-                        <th scope="col">Classe</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Prioridade</th>
-                        <th scope="col">Diligência</th>
-                        <th scope="col">Data da diligência</th>
+                        <th scope="col" class="text-center">Processo</th>
+                        <th scope="col" class="text-center">Classe</th>
+                        <th scope="col" class="text-center">Tipo</th>
+                        <th scope="col" class="text-center">Prioridade</th>
+                        <th scope="col" class="text-center">Diligência</th>
+                        <th scope="col" class="text-center">Data da diligência</th>
+                        <th scope="col" class="text-center"></th>
+                        <th scope="col" class="text-center"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,12 +36,14 @@
                         {% for diligencia in diligencias %}
 
                             <tr>
-                                <td>{{ diligencia.processo }}</td>
-                                <td>{{ diligencia.classe }}</td>
-                                <td>{{ diligencia.tipo }}</td>
-                                <td>{{ diligencia.prioridade }}</td>
+                                <td class="text-center">{{ diligencia.processo }}</td>
+                                <td class="text-center">{{ diligencia.classe }}</td>
+                                <td class="text-center">{{ diligencia.tipo }}</td>
+                                <td class="text-center">{{ diligencia.prioridade }}</td>
                                 <td>{{ diligencia.diligencia }}</td>
-                                <td>{{ diligencia.data_diligencia }}</td>
+                                <td class="text-center">{{ diligencia.data_diligencia }}</td>
+                                <td class="text-center"><a href="" type="button" class="btn btn-warning">Editar</a></td>
+                                <td class="text-center"><a href="{% url 'deleta_diligencia' diligencia.id %}" type="button" class="btn btn-danger">Excluir</a></td>
                             </tr>
                         {% endfor %}
                     {% else %}

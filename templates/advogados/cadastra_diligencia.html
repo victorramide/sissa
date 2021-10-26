@@ -27,12 +27,12 @@
                         <form action="{% url 'cadastra_diligencia' %}" method="post">
                             {% csrf_token %}
                             <div class="row">
-                                <div class="col-12 col-lg-12">
+                                <div class="col-12 col-lg-6">
                                     <label for="processo"><b>Processo</b></label>
-                                    <input type="text" id="processo" class="form-control" name="processo"
-                                           placeholder="Ex. 8001234-56.2021.8.05.0141" required>
+                                    <input type="text" id="processo" class="form-control" name="processo" placeholder="Ex. 8001234-56.2021.8.05.0044" required>
                                 </div>
-                                <div class="col-12 col-lg-12">
+
+                                <div class="col-12 col-lg-6">
                                     <label for="classe"><b>Classe processual</b></label>
                                     <select class="form-control" size="5" name="classe">
                                         <option value="" selected>Selecione a Classe Processual...</option>
