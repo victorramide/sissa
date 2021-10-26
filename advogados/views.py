@@ -112,7 +112,7 @@ def minhas_diligencias(request):
     diligencias_a_exibir = {
         'diligencias': diligencias
     }
-    return render(request, 'minhas_diligencias.html', diligencias_a_exibir)
+    return render(request, 'advogados/minhas_diligencias.html', diligencias_a_exibir)
 
 
 def cadastra_diligencia(request):
@@ -145,7 +145,7 @@ def cadastra_diligencia(request):
                                                diligencia=descricao_diligencia, prioridade=prioridade,
                                                advogado=advogado, data_conclusao=data_conclusao)
         diligencia.save()
-        messages.success(request,'Diligência cadastrada com sucesso!')
+        messages.success(request, 'Diligência cadastrada com sucesso!')
         return redirect('index')
     else:
         return render(request, 'advogados/cadastra_diligencia.html')
@@ -156,6 +156,26 @@ def deleta_diligencia(request, diligencia_id):
     diligencia.delete()
     return redirect('minhas_diligencias')
 
+
+def edita_diligencia(request, diligencia_id):
+    diligencia = get_object_or_404(Diligencia, pk=diligencia_id)
+    diligencia_a_editar = {'diligencia': diligencia}
+    return render(request, 'advogados/edita_diligencia.html', diligencia_a_editar)
+
+
+def atualiza_diligencia(request):
+    if request.method == 'POST':
+        diligencia_id = request.POST['diligencia_id']
+        diligencia = Diligencia.objects.get(pk=diligencia_id)
+        diligencia.processo = request.POST['processo']
+        diligencia.classe = request.POST['classe']
+        diligencia.tipo = request.POST['tipo']
+        diligencia.prioridade = request.POST['prioridade']
+        diligencia.diligencia = request.POST['diligencia']
+        if request.POST['data_conclusao'] != "":
+            diligencia.data_conclusao = request.POST['data_conclusao']
+        diligencia.save()
+        return redirect('minhas_diligencias')
 
 def campo_vazio(campo):
     return not campo.strip()

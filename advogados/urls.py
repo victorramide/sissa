@@ -7,5 +7,7 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
     path('minhas_diligencias', views.minhas_diligencias, name='minhas_diligencias'),
     path('cadastra_diligencia', views.cadastra_diligencia, name='cadastra_diligencia'),
-    path('deleta_diligencia/<int:diligencia_id>', views.deleta_diligencia, name='deleta_diligencia')
+    path('deleta_diligencia/<int:diligencia_id>', views.deleta_diligencia, name='deleta_diligencia'),
+    path('edita/<int:diligencia_id>', views.edita_diligencia, name='edita_diligencia'),
+    path('atualiza_diligencia', views.atualiza_diligencia, name='atualiza_diligencia'),
 ]

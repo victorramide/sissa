@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>Cadastre aqui a sua diligência, Dr(a). {{ user.username }}</h3>
+                        <h3>Atualize aqui a sua diligência, Dr(a). {{ user.username }}</h3>
                     </div>
                 </div>
             </div>
@@ -24,18 +24,22 @@
                 <div class="col-12">
                     <p>Todos os campos são obrigatórios</p>
                     <div class="contact-form-area">
-                        <form action="{% url 'cadastra_diligencia' %}" method="post">
+                        <form action="{% url 'atualiza_diligencia' %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
+                             <input type="text" id="diligencia_id" class="form-control" name="diligencia_id" value="{{diligencia.id}}" hidden>
                             <div class="row">
                                 <div class="col-12 col-lg-6">
                                     <label for="processo"><b>Processo</b></label>
-                                    <input type="text" id="processo" class="form-control" name="processo" placeholder="Ex. 8001234-56.2021.8.05.0044" required>
+                                    <input type="text" id="processo" class="form-control" name="processo"
+                                           placeholder="Ex. 8001234-56.2021.8.05.0044" value="{{ diligencia.processo }}"
+                                           required>
                                 </div>
 
                                 <div class="col-12 col-lg-6">
                                     <label for="classe"><b>Classe processual</b></label>
                                     <select class="form-control" size="5" name="classe">
-                                        <option value="" selected>Selecione a Classe Processual...</option>
+                                        <option value="{{ diligencia.classe }}"
+                                                selected>{{ diligencia.classe }}</option>
                                         <option value="Adoção">Adoção</option>
                                         <option value="Alimentos">Alimentos</option>
                                         <option value="Alvará">Alvará</option>
@@ -66,34 +70,43 @@
                                         <option value="Registros Públicos">Registros Públicos</option>
                                     </select>
                                 </div>
-                                <div class="col-12 col-lg-4">
+                                <div class="col-12 col-lg-3">
                                     <label for="tipo"><b>Tipo</b></label>
                                     <select class="form-control" size="5" name="tipo">
-                                        <option value="" selected>Selecione o tipo da diligência...</option>
+                                        <option value="{{ diligencia.tipo }}" selected>{{ diligencia.tipo }}</option>
                                         <option value="Despacho">Despacho</option>
                                         <option value="Decisão">Decisão</option>
                                         <option value="Sentença">Sentença</option>
                                     </select>
                                 </div>
-                                <div class="col-12 col-lg-4">
+                                <div class="col-12 col-lg-3">
                                     <label for="prioridade"><b>Prioridade legal</b></label>
                                     <select class="form-control" name="prioridade">
-                                        <option value="False" selected>Não</option>
+                                        <option value="{{ diligencia.prioridade }}"
+                                                selected>{{ diligencia.prioridade }}</option>
+                                        <option value="False">Não</option>
                                         <option value="True">Sim</option>
                                     </select>
                                 </div>
-                                <div class="col-12 col-lg-4">
-                                    <label for="data_conclusao"><b>Data da conclusão</b></label>
-                                    <input type="date" id="data_conclusao" class="form-control" name="data_conclusao"
-                                           placeholder="Ex. 01/01/2021">
+
+                                <div class="col-12 col-lg-3">
+                                    <label for="data_antiga"><b>Data de conclusão atual</b></label>
+                                    <input type="text" id="data_antiga" class="form-control" name="data_antiga"
+                                            value="{{ diligencia.data_conclusao }}"
+                                           disabled>
+                                </div>
+                                <div class="col-12 col-lg-3">
+                                    <label for="data_conclusao"><b>Nova data de conclusão (opcional)</b></label>
+                                    <input type="date" id="data_conclusao" class="form-control" name="data_conclusao" value="{{ diligencia.data_conclusao }}">
                                 </div>
                                 <div class="col-12 col-lg-12">
                                     <label for="file"><b>Diligência requerida</b></label>
                                     <textarea class="form-control" name="diligencia" cols="10" rows="5"
-                                              placeholder="Ex. Requer que seja apreciado o pedido liminar de alimentos"></textarea>
+                                              placeholder="Ex. Requer que seja apreciado o pedido liminar de alimentos">{{ diligencia.diligencia }}</textarea>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button class="btn delicious-btn mt-30" type="submit">Envie sua diligência</button>
+                                    <button class="btn delicious-btn mt-30" type="submit">Atualize sua diligência
+                                    </button>
                                 </div>
                             </div>
                         </form>
