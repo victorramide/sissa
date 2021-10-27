@@ -11,7 +11,7 @@ Ao conhecer o Python e sobretudo o Django, eu senti a necessidade de tentar impl
 
 Dito isso, devo deixar claro que todo o front-end do projeto foi feito pela ALURA e entregue durante o curso, eu apenas reaproveitei e modifiquei de forma sutil (Preciso aprender o bootstrap e relembrar as aulas das tecnologias front-end hahaha) já que o estudo foi sobre Django.
 
-Algumas observações: O Django Admin é um recurso de brilhar os olhos, me senti muito bem em ver tudo pronto sem muito esforço e trabalhar com datas no django foi algo muito satisfatório, eu já estava pensando em como fazer as conversões para o formato do Banco de dados e depois converter novamente para mostrar ao usuário, mas simplesmente funcionou como magia, me senti o próprio Harry Potter.
+Algumas observações: O Django Admin é um recurso de brilhar os olhos, me senti muito bem em ver tudo pronto sem muito esforço e trabalhar com datas no django foi algo muito satisfatório, eu já estava pensando em como fazer as conversões para o formato do Banco de dados e depois converter novamente para mostrar ao usuário, mas simplesmente funcionou como magia, me senti o próprio Harry Potter (com a varinha quebrada quando precisei carregar a data no input date. Você vai entender mais a frente).
 
 Porém, nem tudo são flores ou sapos de chocolate (que você fica sem figurinha ou chocolate, é... talvez seja como esse último), algumas dificuldades ao longo do projeto merecem ser pontuadas:
 
@@ -32,5 +32,7 @@ consulta para a lista de processos comuns: <code>select dd.processo, dd.tipo, dd
 - Outra dificuldade boba, mas que tem a ver com Javascript seria fazer um index na tabela para mostrar a posição de cada processo na lista, fiquei horas pesquisando e não encontrei como fazer (AINDA! Lok'tar Ogar!).
   
  <b>SOLUÇÃO:</b> Lendo a documentação do Django eu conheci a variável <code>forloop.counter</code> que faz exatamente o que eu estava precisando.
+  
+ - UPDATE 26/10/2021: Trabalhar com data me parece ser o maior pesadelo do desenvolvedor júnior, a variedade de formatos e a necessidade de adaptar seu armazenamento no banco e mostrar para o usuário de maneira familiar sempre me foi desafiador. No Django essa tarefa foi estranhamente fácil, porém, por falta de conhecimento em Javascript eu suponho, tive dificuldades de carregar a data do Banco de dados no <code>input type='date'</code> na tela de edição de diligência, simplesmente não funcionou. Como alternativa eu precisei carregar a data anteriormente cadastrada em um input simples e manter o input date apenas para possibilitar a alteração. Gambiarra bizarra.
 
 Bom, This is It, espero que tenham se divertido lendo esse Readme como eu me diverti escrevendo e até o próximo commit.
