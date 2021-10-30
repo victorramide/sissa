@@ -3,7 +3,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
-from advogados.models import Advogado
+from apps.advogados.models import Advogado
 
 
 def cadastro(request):

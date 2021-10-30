@@ -61,12 +61,12 @@
                                     <li><a href="{% url 'minhas_diligencias' %}">Minhas diligências</a></li>
                                     <li><a href="{% url 'cadastra_diligencia' %}">Cadastrar diligência</a></li>
                                     <li><a href="{% url 'logout' %}">Logout</a></li>
-                                    <li><a href="/admin">Administração</a></li>
+                                    <li><a href="{% url 'admin:index' %}">Administração</a></li>
                                 {% else %}
                                     <li><a href="{% url 'lista_diligencias' %}">Listas de diligências</a></li>
                                     <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
                                     <li><a href="{% url 'login' %}">Login</a></li>
-                                    <li><a href="/admin">Administração</a></li>
+                                    <li><a href="{% url 'admin:index' %}">Administração</a></li>
                                 {% endif %}
                             </ul>
                         </div>

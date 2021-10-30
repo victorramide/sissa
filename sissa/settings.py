@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import sys
 from pathlib import Path
 from django.conf.locale.pt_BR import formats as br_formats
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Local Apps
-    'advogados',
-    'diligencias',
+    'apps.advogados',
+    'apps.diligencias',
 ]
 
 MIDDLEWARE = [
@@ -141,6 +142,11 @@ MESSAGE_TAGS = {
 # Formato de data
 br_formats.DATE_FORMAT = 'd/m/Y'
 br_formats.DATETIME_FORMAT = 'd/m/Y H:i'
+
+# Incluindo a pasta apps como padrão para os apps
+PROJECT_ROOT = os.path.dirname(__file__)
+sys.path.insert(0, os.path.join(PROJECT_ROOT, '../apps'))
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

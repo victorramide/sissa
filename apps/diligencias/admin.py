@@ -1,5 +1,5 @@
 from django.contrib import admin
-from diligencias.models import Diligencia
+from apps.diligencias.models import Diligencia
 
 
 class ListandoDiligencias(admin.ModelAdmin):

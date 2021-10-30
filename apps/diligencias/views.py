@@ -1,9 +1,9 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 
-from advogados.models import Advogado
-from advogados.views import campo_vazio
-from diligencias.models import Diligencia
+from apps.advogados.models import Advogado
+from apps.advogados.views import campo_vazio
+from apps.diligencias.models import Diligencia
 
 
 def index(request):

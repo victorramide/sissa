@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.db import models
 
-from advogados.models import Advogado
+from apps.advogados.models import Advogado
 
 
 class Diligencia(models.Model):
