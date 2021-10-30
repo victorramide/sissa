@@ -1,11 +1,9 @@
 from django.contrib import messages, auth
-from django.contrib.auth.models import User
-from django.core.exceptions import EmptyResultSet
-from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import Group
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
 
 from advogados.models import Advogado
-from diligencias.models import Diligencia
 
 
 def cadastro(request):
@@ -104,78 +102,6 @@ def logout(request):
     auth.logout(request)
     return redirect('index')
 
-
-def minhas_diligencias(request):
-    advogado = get_object_or_404(Advogado, user_id=request.user.id)
-
-    diligencias = Diligencia.objects.filter(advogado_id=advogado)
-    diligencias_a_exibir = {
-        'diligencias': diligencias
-    }
-    return render(request, 'advogados/minhas_diligencias.html', diligencias_a_exibir)
-
-
-def cadastra_diligencia(request):
-    if request.method == 'POST':
-        processo = request.POST['processo']
-        classe = request.POST['classe']
-        tipo = request.POST['tipo']
-        descricao_diligencia = request.POST['diligencia']
-        prioridade = request.POST['prioridade']
-        advogado = get_object_or_404(Advogado, user_id=request.user.id)
-        data_conclusao = request.POST['data_conclusao']
-
-        if campo_vazio(processo):
-            messages.error(request, 'O campo processo não pode ficar em branco')
-            return redirect('cadastra_diligencia')
-
-        if campo_vazio(classe):
-            messages.error(request, 'Selecione uma classe processual')
-            return redirect('cadastra_diligencia')
-
-        if campo_vazio(tipo):
-            messages.error(request, 'Selecione um tipo de diligência')
-            return redirect('cadastra_diligencia')
-
-        if campo_vazio(data_conclusao):
-            messages.error(request, 'A data de conclusão do processo é obrigatória')
-            return redirect('cadastra_diligencia')
-
-        diligencia = Diligencia.objects.create(processo=processo, classe=classe, tipo=tipo,
-                                               diligencia=descricao_diligencia, prioridade=prioridade,
-                                               advogado=advogado, data_conclusao=data_conclusao)
-        diligencia.save()
-        messages.success(request, 'Diligência cadastrada com sucesso!')
-        return redirect('index')
-    else:
-        return render(request, 'advogados/cadastra_diligencia.html')
-
-
-def deleta_diligencia(request, diligencia_id):
-    diligencia = get_object_or_404(Diligencia, pk=diligencia_id)
-    diligencia.delete()
-    return redirect('minhas_diligencias')
-
-
-def edita_diligencia(request, diligencia_id):
-    diligencia = get_object_or_404(Diligencia, pk=diligencia_id)
-    diligencia_a_editar = {'diligencia': diligencia}
-    return render(request, 'advogados/edita_diligencia.html', diligencia_a_editar)
-
-
-def atualiza_diligencia(request):
-    if request.method == 'POST':
-        diligencia_id = request.POST['diligencia_id']
-        diligencia = Diligencia.objects.get(pk=diligencia_id)
-        diligencia.processo = request.POST['processo']
-        diligencia.classe = request.POST['classe']
-        diligencia.tipo = request.POST['tipo']
-        diligencia.prioridade = request.POST['prioridade']
-        diligencia.diligencia = request.POST['diligencia']
-        if request.POST['data_conclusao'] != "":
-            diligencia.data_conclusao = request.POST['data_conclusao']
-        diligencia.save()
-        return redirect('minhas_diligencias')
 
 def campo_vazio(campo):
     return not campo.strip()
