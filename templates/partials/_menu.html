@@ -58,8 +58,10 @@
                             <ul>
                                 {% if user.is_authenticated %}
                                     <li><a href="{% url 'lista_diligencias' %}">Listas de diligências</a></li>
+                                    {% if not user.is_staff %}
                                     <li><a href="{% url 'minhas_diligencias' %}">Minhas diligências</a></li>
                                     <li><a href="{% url 'cadastra_diligencia' %}">Cadastrar diligência</a></li>
+                                    {% endif %}
                                     <li><a href="{% url 'logout' %}">Logout</a></li>
                                     <li><a href="{% url 'admin:index' %}">Administração</a></li>
                                 {% else %}
