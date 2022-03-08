@@ -16,15 +16,18 @@ def cadastro(request):
         uf = request.POST['uf']
         senha = request.POST['senha']
         senha2 = request.POST['senha2']
-        username = primeiro_nome + " " + ultimo_nome  # Salva como username o primeiro e ultimo nome do usuário.
+        # Salva como username o primeiro e ultimo nome do usuário.
+        username = f'{primeiro_nome} {ultimo_nome}'
         # Faz a validação dos dados verificando se os campos não estão vazios ou se existe usuário com aquele email
         # ou username
         if campo_vazio(primeiro_nome):
-            messages.error(request, 'O campo primeiro nome não pode ficar em branco')
+            messages.error(
+                request, 'O campo primeiro nome não pode ficar em branco')
             return redirect('cadastro')
 
         if campo_vazio(ultimo_nome):
-            messages.error(request, 'O campo ultimo nome não pode ficar em branco')
+            messages.error(
+                request, 'O campo ultimo nome não pode ficar em branco')
             return redirect('cadastro')
 
         if campo_vazio(oab):
@@ -62,15 +65,12 @@ def cadastro(request):
         user.save()
         advogado.save()
 
-        # Adicionando o Advogado no grupo 'Advogado' do Django Admin, com suas permissões pré definidas
-        grupo_advogados = Group.objects.get(name='Advogados')
-        grupo_advogados.user_set.add(user)
-
         # Envia a mensagem de sucesso e redireciona para a página de Login
         messages.success(request, 'Usuário cadastrado com sucesso!')
         return redirect('login')
     else:
-        return render(request, 'advogados/cadastro.html')  # Caso o cadastro não seja realizado o sistema se mantem na
+        # Caso o cadastro não seja realizado o sistema se mantem na
+        return render(request, 'advogados/cadastro.html')
         # página de Cadastro
 
 
@@ -80,21 +80,26 @@ def login(request):
         email = request.POST['email']
         senha = request.POST['senha']
 
-        if campo_vazio(email) or campo_vazio(senha):  # verifica se os campos foram preenchidos
+        # verifica se os campos foram preenchidos
+        if campo_vazio(email) or campo_vazio(senha):
             messages.error(request, 'Os campos email e senha são obrigatórios')
             return redirect('login')
 
         # Método para recuperar o username através do email digitado, permitindo a autenticação por e-mail
-        if User.objects.filter(email=email).exists():  # primeiro verifica se o email existe.
+        # primeiro verifica se o email existe.
+        if User.objects.filter(email=email).exists():
             username = User.objects.filter(email=email).values_list('username',
                                                                     flat=True).get()  # pega o username vinculado ao
             # email
-            user = auth.authenticate(request, username=username, password=senha)  # Salva o usuário na variável
+            # Salva o usuário na variável
+            user = auth.authenticate(
+                request, username=username, password=senha)
             if user is not None:  # Caso o usuário não esteja vazio, ou seja, ele exista.
                 auth.login(request, user)  # Realiza a autenticação do usuário
                 return redirect('index')
         # Caso não seja possível recuperar o usuário exibe mensagem de erro
-        messages.error(request, 'Falha na autenticação, verifique seu email e senha')
+        messages.error(
+            request, 'Falha na autenticação, verifique seu email e senha')
     return render(request, 'advogados/login.html')
 
 
